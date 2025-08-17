@@ -1,42 +1,117 @@
-#root {
-  max-width: 1280px;
+/* App.css */
+
+/* Style général */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Container principal */
+div {
+  padding: 20px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+}
+
+/* Titre principal */
+h1 {
   text-align: center;
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Titre secondaire */
+h2 {
+  margin-top: 40px;
+  color: #34495e;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Table du classement */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Styles des cellules de la table */
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ecf0f1;
 }
 
-.card {
-  padding: 2em;
+th {
+  background-color: #f4f6f7;
+  color: #2c3e50;
+  font-weight: bold;
 }
 
-.read-the-docs {
-  color: #888;
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #e7e7e7;
+}
+
+/* Formulaire pour ajouter un score */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #3498db;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Bouton de rechargement */
+button[type="button"] {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #2ecc71;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #27ae60;
+}
+
+/* Style de chargement */
+div > div {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #7f8c8d;
 }

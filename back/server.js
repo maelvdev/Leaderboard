@@ -1,3 +1,4 @@
+
 require("dotenv").config();
 const express = require("express");
 const { Pool } = require("pg");
@@ -16,10 +17,10 @@ const pool = new Pool({
 app.use(cors());
 app.use(express.json());
 
-// Route pour récupérer les scores (classement)
-app.get("/api/scores", async (req, res) => {
+// Route pour récupérer les scores
+app.get("/controller", async (req, res) => {
     try {
-        const result = await pool.query("SELECT * FROM scores ORDER BY score DESC");
+        const result = await pool.query("SELECT * FROM scores ORDER BY score DESC LIMIT 5");
         res.json(result.rows);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -27,7 +28,7 @@ app.get("/api/scores", async (req, res) => {
 });
 
 // Route pour ajouter un score
-app.post("/api/scores", async (req, res) => {
+app.post("/controller", async (req, res) => {
     const { pseudo, score } = req.body;
     try {
         await pool.query("INSERT INTO scores (pseudo, score) VALUES ($1, $2)", [pseudo, score]);
@@ -35,6 +36,15 @@ app.post("/api/scores", async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});
+
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "dist")));
+
+// Gérer les routes React
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 // Démarrage du serveur

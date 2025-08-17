@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "4KaXXNf9QN8=",
+  "success": true,
+  "projectFilePath": "C:\\CHEF\\IUT\\Annee2\\s4\\projet\\leader\\dotnet\\leaderAPI\\leaderAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\maelo\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\maelo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.3\\microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",
+    "C:\\Users\\maelo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\maelo\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\maelo\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\maelo\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "bVg7IsdDMINVJk6PubN4Eiqax+j4VIq/rpITNwaLeLs=",
+  "Source": "leaderAPI",
+  "BasePath": "_content/leaderAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

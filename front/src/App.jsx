@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import "./App.css";
+
+const API_BASE_URL = "http://localhost:5000/controller";
 
 const fetchScores = async () => {
-    const { data } = await axios.get("/api/scores");
-    return data;
+    const { data } = await axios.get(API_BASE_URL);
+    return Array.isArray(data) ? data : [];
 };
 
 const App = () => {
     const queryClient = useQueryClient();
-    const { data: scores, isLoading } = useQuery({ queryKey: ["scores"], queryFn: fetchScores });
+    const { data: scores = [], isLoading } = useQuery({ queryKey: ["scores"], queryFn: fetchScores });
 
     const [pseudo, setPseudo] = useState("");
     const [score, setScore] = useState("");
 
     const mutation = useMutation({
-        mutationFn: (newScore) => axios.post("http://localhost:5000/api/scores", newScore),
+        mutationFn: (newScore) => axios.post(API_BASE_URL, newScore),
         onSuccess: () => queryClient.invalidateQueries(["scores"]),
     });
 
@@ -39,7 +42,7 @@ const App = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {scores?.map((score) => (
+                    {scores.map((score) => (
                         <tr key={score.id}>
                             <td>{score.pseudo}</td>
                             <td>{score.score}</td>
@@ -54,6 +57,10 @@ const App = () => {
                 <input type="number" placeholder="Score" value={score} onChange={(e) => setScore(e.target.value)} required />
                 <button type="submit">Ajouter</button>
             </form>
+
+            <button onClick={() => queryClient.invalidateQueries(["scores"])}>
+                🔄 Recharger
+            </button>
         </div>
     );
 };
